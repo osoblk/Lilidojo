@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lili Tekken Trainer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <header>
+        <h1>Lili Tekken Trainer</h1>
+        <button onclick="installPWA()">Install</button>
+    </header>
+
+    <main>
+        <section id="matchups">
+            <h2>Matchups</h2>
+            <select id="character-select">
+                <option value="">Select Opponent</option>
+            </select>
+            <div id="matchup-info"></div>
+        </section>
+
+        <section id="punishment">
+            <h2>Punishment Trainer</h2>
+            <input type="text" id="move-frame" placeholder="Enter move block frames (-10, -12, etc)">
+            <button onclick="getPunish()">Check Punish</button>
+            <div id="punish-result"></div>
+        </section>
+
+        <section id="combos">
+            <h2>Combo Trainer</h2>
+            <button onclick="showCombos()">Show Best Combos</button>
+            <div id="combo-list"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="service-worker.js"></script>
+</body>
+</html>
