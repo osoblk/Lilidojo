@@ -11,11 +11,10 @@ function loadCharacterMoves() {
         .then(response => response.json())
         .then(data => {
             moveData = data.moves;
-            localStorage.setItem(`${character}_moves`, JSON.stringify(moveData)); // Cache for offline use
+            localStorage.setItem(`${character}_moves`, JSON.stringify(moveData));
             populateMoves();
         })
         .catch(() => {
-            console.log("Loading from offline storage...");
             moveData = JSON.parse(localStorage.getItem(`${character}_moves`)) || {};
             populateMoves();
         });
@@ -53,32 +52,15 @@ function populateMoves() {
     });
 }
 
-// Display move details when selected
-function displayMoveDetails() {
-    let moveName = document.getElementById("move-list").value;
-    if (!moveName) return;
+// Open Different Training Modes
+function openComboTrainer() { alert("Combo Trainer Coming Soon!"); }
+function openPunishmentTrainer() { alert("Punishment Trainer Coming Soon!"); }
+function openMatchupGuide() { alert("Matchup Guide Coming Soon!"); }
+function openGhostTrainer() { alert("Ghost Input Trainer Coming Soon!"); }
 
-    let selectedMove;
-    for (let key in moveData) {
-        selectedMove = moveData[key].find(m => m.name === moveName);
-        if (selectedMove) break;
+// PWA Installation
+function installPWA() {
+    if (window.deferredPrompt) {
+        window.deferredPrompt.prompt();
     }
-
-    if (!selectedMove) return;
-
-    document.getElementById("move-name").textContent = selectedMove.name || "N/A";
-    document.getElementById("move-command").textContent = selectedMove.command || "N/A";
-    document.getElementById("move-start").textContent = selectedMove.start_frame || "N/A";
-    document.getElementById("move-guard").textContent = selectedMove.guard_frame || "N/A";
-    document.getElementById("move-hit").textContent = selectedMove.hit_frame || "N/A";
-    document.getElementById("move-counter").textContent = selectedMove.counter_frame || "N/A";
-    document.getElementById("move-damage").textContent = selectedMove.damage || "N/A";
-    document.getElementById("move-extra").textContent = selectedMove.extra || "N/A";
 }
-
-// Event Listeners
-document.getElementById("character-select").addEventListener("change", loadCharacterMoves);
-document.getElementById("move-category").addEventListener("change", populateMoves);
-document.getElementById("frame-filter").addEventListener("change", populateMoves);
-document.getElementById("move-search").addEventListener("keyup", populateMoves);
-document.getElementById("move-list").addEventListener("change", displayMoveDetails);
