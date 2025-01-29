@@ -1,12 +1,17 @@
-const CACHE_NAME = "lili-trainer-v1";
+const CACHE_NAME = "tekken8-pwa-v3";
 const ASSETS_TO_CACHE = [
     "/",
     "/index.html",
     "/styles.css",
     "/script.js",
     "/manifest.json",
+    "/data/alisa.json",
+    "/data/asuka.json",
+    "/data/bryan.json",
+    "/data/lili.json",
+    "/data/king.json",
+    "/data/paul.json",
     "/data/matchups.json",
-    "/data/frame-data.json",
     "/data/combos.json",
     "/icons/lili-192.png",
     "/icons/lili-512.png"
@@ -16,6 +21,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
+            console.log("[Service Worker] Caching app resources");
             return cache.addAll(ASSETS_TO_CACHE);
         })
     );
@@ -30,7 +36,7 @@ self.addEventListener("fetch", (event) => {
     );
 });
 
-// Update Service Worker
+// Update Cache for New Versions
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((keys) => {
@@ -40,4 +46,5 @@ self.addEventListener("activate", (event) => {
             );
         })
     );
+    console.log("[Service Worker] Cache updated");
 });
