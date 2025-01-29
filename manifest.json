@@ -1,20 +1,23 @@
 {
-    "name": "Lili Tekken Trainer",
-    "short_name": "LiliTrainer",
+    "name": "Tekken 8 Training Dojo",
+    "short_name": "T8 Dojo",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#FFD700",
     "icons": [
         {
-            "src": "icons/lili-192.png",
+            "src": "/icons/lili-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "icons/lili-512.png",
+            "src": "/icons/lili-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
-    ]
+    ],
+    "description": "The ultimate Tekken 8 training tool with move lists, matchups, combos, and AI coaching.",
+    "orientation": "portrait",
+    "scope": "/"
 }
