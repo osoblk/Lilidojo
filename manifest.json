@@ -1,0 +1,20 @@
+{
+    "name": "Lili Tekken Trainer",
+    "short_name": "LiliTrainer",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#FFD700",
+    "icons": [
+        {
+            "src": "icons/lili-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/lili-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
