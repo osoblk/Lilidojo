@@ -3,41 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lili Tekken Trainer</title>
+    <title>Tekken 8 Movelist</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-
     <header>
-        <h1>Lili Tekken Trainer</h1>
-        <button onclick="installPWA()">Install</button>
+        <h1>Tekken 8 Movelist Trainer</h1>
     </header>
 
     <main>
-        <section id="matchups">
-            <h2>Matchups</h2>
-            <select id="character-select">
-                <option value="">Select Opponent</option>
+        <section id="character-selector">
+            <label for="character-select">Select Character:</label>
+            <select id="character-select" onchange="loadCharacterMoves()">
+                <option value="">Choose a Character</option>
+                <option value="alisa">Alisa</option>
+                <option value="asuka">Asuka</option>
+                <option value="bryan">Bryan</option>
+                <option value="lili">Lili</option>
+                <option value="king">King</option>
+                <option value="paul">Paul</option>
             </select>
-            <div id="matchup-info"></div>
         </section>
 
-        <section id="punishment">
-            <h2>Punishment Trainer</h2>
-            <input type="text" id="move-frame" placeholder="Enter move block frames (-10, -12, etc)">
-            <button onclick="getPunish()">Check Punish</button>
-            <div id="punish-result"></div>
+        <section id="filters">
+            <input type="text" id="move-search" placeholder="Search moves..." onkeyup="populateMoves()">
+
+            <label for="move-category">Filter by Type:</label>
+            <select id="move-category" onchange="populateMoves()">
+                <option value="all">All Moves</option>
+                <option value="general">General Moves</option>
+                <option value="heat">Heat Moves</option>
+                <option value="throws">Throws</option>
+            </select>
+
+            <label for="frame-filter">Frame Advantage:</label>
+            <select id="frame-filter" onchange="populateMoves()">
+                <option value="all">All</option>
+                <option value="safe">Safe on Block (0 or +)</option>
+                <option value="plus">Plus on Hit</option>
+                <option value="counter">Plus on Counter</option>
+            </select>
         </section>
 
-        <section id="combos">
-            <h2>Combo Trainer</h2>
-            <button onclick="showCombos()">Show Best Combos</button>
-            <div id="combo-list"></div>
+        <section id="move-selector">
+            <label for="move-list">Select Move:</label>
+            <select id="move-list" onchange="displayMoveDetails()">
+                <option value="">Select a Move</option>
+            </select>
+        </section>
+
+        <section id="move-details">
+            <h2>Move Details</h2>
+            <p><strong>Name:</strong> <span id="move-name"></span></p>
+            <p><strong>Command:</strong> <span id="move-command"></span></p>
+            <p><strong>Start-up Frame:</strong> <span id="move-start"></span></p>
+            <p><strong>Guard Frame:</strong> <span id="move-guard"></span></p>
+            <p><strong>Hit Frame:</strong> <span id="move-hit"></span></p>
+            <p><strong>Counter Hit Frame:</strong> <span id="move-counter"></span></p>
+            <p><strong>Damage:</strong> <span id="move-damage"></span></p>
+            <p><strong>Extra Info:</strong> <span id="move-extra"></span></p>
         </section>
     </main>
 
     <script src="script.js"></script>
-    <script src="service-worker.js"></script>
 </body>
 </html>
