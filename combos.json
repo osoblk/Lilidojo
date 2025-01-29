@@ -1,0 +1,14 @@
+{
+    "combos": [
+        {
+            "starter": "df+2",
+            "combo": "df+2, f+3, f+1, f+3, d+3+4",
+            "damage": 50
+        },
+        {
+            "starter": "uf+3",
+            "combo": "uf+3, df+3+4, f+3, df+1,2, d+3+4",
+            "damage": 48
+        }
+    ]
+}
