@@ -1,0 +1,14 @@
+{
+    "matchups": {
+        "Jin": {
+            "difficulty": "Hard",
+            "key_moves": ["b+2,1", "f+4", "uf+4"],
+            "strategy": "Sidestep left to evade Jin’s mids. Punish b+2,1 with Lili’s WS+2."
+        },
+        "Kazuya": {
+            "difficulty": "Medium",
+            "key_moves": ["df+2", "EWGF", "Hell Sweep"],
+            "strategy": "Backdash to create whiff opportunities. Use df+1 to check Kazuya."
+        }
+    }
+}
