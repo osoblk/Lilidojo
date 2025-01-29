@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekken 8 Movelist</title>
+    <title>Tekken 8 Training Dojo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <header>
-        <h1>Tekken 8 Movelist Trainer</h1>
+        <h1>Tekken 8 Training Dojo</h1>
+        <button onclick="installPWA()">Install App</button>
     </header>
 
     <main>
@@ -25,10 +27,16 @@
             </select>
         </section>
 
-        <section id="filters">
-            <input type="text" id="move-search" placeholder="Search moves..." onkeyup="populateMoves()">
+        <section id="training-modes">
+            <button onclick="openComboTrainer()">Combo Trainer</button>
+            <button onclick="openPunishmentTrainer()">Punishment Trainer</button>
+            <button onclick="openMatchupGuide()">Matchup Guide</button>
+            <button onclick="openGhostTrainer()">Ghost Input Trainer</button>
+        </section>
 
-            <label for="move-category">Filter by Type:</label>
+        <section id="move-selector">
+            <input type="text" id="move-search" placeholder="Search moves..." onkeyup="populateMoves()">
+            <label for="move-category">Move Type:</label>
             <select id="move-category" onchange="populateMoves()">
                 <option value="all">All Moves</option>
                 <option value="general">General Moves</option>
@@ -43,9 +51,7 @@
                 <option value="plus">Plus on Hit</option>
                 <option value="counter">Plus on Counter</option>
             </select>
-        </section>
 
-        <section id="move-selector">
             <label for="move-list">Select Move:</label>
             <select id="move-list" onchange="displayMoveDetails()">
                 <option value="">Select a Move</option>
